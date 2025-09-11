@@ -1,0 +1,34 @@
+{
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "loading": "Loading",
+    "error": "Error",
+    "reload": "Reload",
+    "true": "True",
+    "false": "False",
+    "success": "Success",
+    "info": "Info"
+  },
+  "error": {
+    "title": "Error",
+    "unauthorized": "You do not have the necessary permissions to access this application",
+    "network": "A network error occurred",
+    "notFound": "The requested resource was not found",
+    "serverError": "An error occurred on the server"
+  },
+  "pages": {
+    "home": {
+      "title": "Home",
+      "description": "Welcome to the home page.",
+      "action": "Increment Counter",
+      "reset": "Reset Counter",
+      "value": "Value"
+    }
+  },
+  "components": {
+    "header": {
+      "logout": "Logout"
+    }
+  }
+}
