@@ -6,10 +6,9 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { ToastProvider } from '@/context';
 import { AppRouter } from '@/routes';
 import { persistor, store } from '@/store';
-import { GlobalStyles } from '@/theme';
 
 import '@/config';
-
+import '@/theme/global.css';
 import 'unfonts.css';
 
 if (import.meta.env.DEV) {
@@ -21,7 +20,6 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <GlobalStyles />
         <ToastProvider>
           <AppRouter />
         </ToastProvider>

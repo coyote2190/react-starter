@@ -1,10 +1,13 @@
 {
   "extends": ["stylelint-config-standard", "stylelint-config-recess-order"],
-  "customSyntax": "postcss-styled-syntax",
   "rules": {
     "color-no-invalid-hex": true,
+    "property-no-unknown": [true, { "ignoreProperties": ["composes"] }],
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9]*$",
     "order/properties-order": [
       [
+        "composes",
+
         "position",
         "top",
         "right",

@@ -2,16 +2,12 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import UnfontsRaw from 'unplugin-fonts/vite';
 import { defineConfig, UserConfig } from 'vite';
-import eslint from 'vite-plugin-eslint';
-import tsconfigPaths from 'vite-tsconfig-paths';
 const Unfonts = UnfontsRaw as unknown as (o?: unknown) => unknown;
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    tsconfigPaths(),
-    eslint(),
     Unfonts({
       custom: {
         display: 'swap',
@@ -20,7 +16,7 @@ export default defineConfig({
             local: 'Lato',
             name: 'Lato',
             src: './public/fonts/Lato*',
-            transform(font) {
+            transform(font: { basename: string; weight?: number }) {
               if (font.basename === 'Lato-Light') font.weight = 300;
               if (font.basename === 'Lato-Regular') font.weight = 400;
               if (font.basename === 'Lato-Medium') font.weight = 500;
@@ -47,7 +43,8 @@ export default defineConfig({
       '@/theme': path.resolve(__dirname, './src/theme'),
       '@/utils': path.resolve(__dirname, './src/utils')
     },
-    dedupe: ['react', 'react-dom', 'styled-components']
+    dedupe: ['react', 'react-dom'],
+    tsconfigPaths: true
   },
   server: {
     port: 3000

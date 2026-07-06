@@ -21,7 +21,6 @@ if (!inputName) {
 }
 
 const pascalName = toPascalCase(inputName);
-const styledComponentName = `Styled${pascalName}Container`;
 const propsInterfaceName = `${pascalName}Props`;
 
 const basePath = path.resolve(__dirname, '../src/components', inputName);
@@ -34,24 +33,22 @@ if (fs.existsSync(basePath)) {
 fs.mkdirSync(basePath, { recursive: true });
 
 const files: Record<string, string> = {
+  [`${inputName}.module.css`]: `.${inputName} {
+  /* styles here */
+}
+`,
   [`${inputName}.tsx`]: `import type { FC } from 'react';
 
-import { ${styledComponentName} } from './${inputName}.styles';
+import styles from './${inputName}.module.css';
 import type { ${propsInterfaceName} } from './${inputName}.types';
 
 const ${pascalName}: FC<${propsInterfaceName}> = ({ dataTestId }) => (
-  <${styledComponentName} data-testid={dataTestId}>
+  <div className={styles.${inputName}} data-testid={dataTestId}>
     ${pascalName}
-  </${styledComponentName}>
+  </div>
 );
 
 export default ${pascalName};
-`,
-  [`${inputName}.styles.ts`]: `import styled from 'styled-components';
-
-export const ${styledComponentName} = styled.div\`
-  // styles here
-\`;
 `,
   [`${inputName}.types.ts`]: `export type ${propsInterfaceName} = {
   dataTestId?: string;

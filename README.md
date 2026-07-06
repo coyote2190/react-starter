@@ -7,5 +7,5 @@
 - [TypeScript 5](https://www.typescriptlang.org/)
 - [Vitest](https://vitest.dev/) (unit testing)
 - [Testing Library](https://testing-library.com/)
-- [Styled-components 6](https://styled-components.com/)
+- CSS Modules
 - [ESLint + Prettier + Stylelint](https://eslint.org/) (code quality)

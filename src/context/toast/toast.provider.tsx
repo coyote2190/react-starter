@@ -1,8 +1,8 @@
 import { type ReactNode, useState } from 'react';
 
 import { ToastContext } from './toast.context';
-import { StyledToastContainer } from './toast.styles';
 import type { BaseToast, Toast } from './toast.types';
+import styles from './toast.module.css';
 
 let toastId = 0;
 
@@ -21,11 +21,11 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
   return (
     <ToastContext.Provider value={{ showToast }}>
       {children}
-      <StyledToastContainer>
+      <div className={styles.toastContainer}>
         {toasts.map((toast) => (
           <div key={toast.id}>alert</div>
         ))}
-      </StyledToastContainer>
+      </div>
     </ToastContext.Provider>
   );
 };

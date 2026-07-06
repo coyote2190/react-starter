@@ -2,15 +2,15 @@ import { Outlet } from 'react-router';
 
 import { Header } from '@/components';
 
-import { StyleMainLayout } from './mainLayout.styles';
+import styles from './mainLayout.module.css';
 
 const MainLayout = () => (
-  <StyleMainLayout>
+  <div className={styles.layout}>
     <Header />
     <main>
       <Outlet />
     </main>
-  </StyleMainLayout>
+  </div>
 );
 
 export default MainLayout;

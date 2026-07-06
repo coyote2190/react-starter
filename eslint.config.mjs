@@ -3,26 +3,19 @@ import globals from 'globals';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
-import { globalIgnores } from 'eslint/config';
-import prettier from 'eslint-config-prettier';
-import simpleImportSort from 'eslint-plugin-simple-import-sort';
-import sortDestructureKeys from 'eslint-plugin-sort-destructure-keys';
-import sortKeysFix from 'eslint-plugin-sort-keys-fix';
+import perfectionist from 'eslint-plugin-perfectionist';
 import react from 'eslint-plugin-react';
 import importPlugin from 'eslint-plugin-import';
 import pluginPromise from 'eslint-plugin-promise';
+import eslintConfigPrettier from 'eslint-config-prettier';
 
-export default tseslint.config([
-  globalIgnores(['dist', '**/node_modules/', 'eslint.config.mjs', '**/coverage/']),
+export default tseslint.config(
+  { ignores: ['dist', '**/node_modules/', 'eslint.config.mjs', '**/coverage/'] },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  eslintConfigPrettier,
   {
     files: ['**/*.{ts,tsx}'],
-    ignores: ['dist', 'eslint.config.mjs'],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite
-    ],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -31,25 +24,19 @@ export default tseslint.config([
     settings: {
       react: {
         version: 'detect'
-      },
-      'import/resolver': {
-        typescript: { alwaysTryTypes: true, project: ['tsconfig.json', 'tsconfig.node.json'] },
-        node: true
       }
     },
     plugins: {
       react,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
       import: importPlugin,
-      'simple-import-sort': simpleImportSort,
-      'sort-destructure-keys': sortDestructureKeys,
-      'sort-keys-fix': sortKeysFix,
-      prettier: prettier,
+      perfectionist,
       promise: pluginPromise
     },
     rules: {
       // TypeScript
       '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/no-use-before-define': [
         'error',
@@ -75,31 +62,48 @@ export default tseslint.config([
       // Hooks
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
-
-      // Imports
+      // Native import rules disabled to avoid conflicts with perfectionist
       'import/no-unresolved': 'off',
       'import/no-named-as-default': 'off',
       'import/first': 'error',
       'import/newline-after-import': 'off',
       'import/order': 'off',
       'sort-imports': 'off',
-      'simple-import-sort/imports': [
+      'perfectionist/sort-imports': [
         'error',
         {
+          type: 'alphabetical',
+          order: 'asc',
+          ignoreCase: false,
+          internalPattern: ['^(@|components|utils|hooks|contexts)(/.*|$)'],
+          customGroups: [
+            { groupName: 'react', elementNamePattern: '^react' },
+            { groupName: 'style', elementNamePattern: '\\.(css|scss)$' }
+          ],
           groups: [
-            ['^react', '^@?\\w'],
-            ['^(@|components|utils|hooks|contexts)(/.*|$)'],
-            ['^\\u0000'],
-            ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
-            ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
-            ['^.+\\.?(css|scss)$']
-          ]
+            'react',
+            ['value-builtin', 'value-external'],
+            ['value-internal', 'type-internal'],
+            ['side-effect', 'side-effect-style'],
+            ['type-parent', 'value-parent'],
+            ['type-sibling', 'value-sibling', 'type-index', 'value-index'],
+            'style',
+            'unknown'
+          ],
+          newlinesBetween: 'ignore'
         }
       ],
-      'simple-import-sort/exports': 'error',
-      // Sorting
-      'sort-keys-fix/sort-keys-fix': ['warn', 'asc', { caseSensitive: true, natural: false }],
-      'sort-destructure-keys/sort-destructure-keys': ['warn', { caseSensitive: true }],
+      'perfectionist/sort-exports': ['error', { type: 'alphabetical', order: 'asc', ignoreCase: false }],
+      'perfectionist/sort-objects': ['warn', { type: 'alphabetical', order: 'asc', ignoreCase: false }],
+      'perfectionist/sort-exports': ['error', { type: 'natural', order: 'asc' }],
+      'perfectionist/sort-objects': [
+        'warn',
+        {
+          type: 'alphabetical',
+          order: 'asc',
+          ignoreCase: false
+        }
+      ],
       // Promises
       'promise/always-return': 'warn',
       'promise/no-return-wrap': 'error',
@@ -111,4 +115,4 @@ export default tseslint.config([
       'promise/valid-params': 'warn'
     }
   }
-]);
+);
