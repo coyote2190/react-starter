@@ -23,7 +23,18 @@ if (!inputName) {
 const pascalName = toPascalCase(inputName);
 const propsInterfaceName = `${pascalName}Props`;
 
-const basePath = path.resolve(__dirname, '../src/components', inputName);
+const componentsDir = path.resolve(__dirname, '../src/components');
+const basePath = path.resolve(componentsDir, inputName);
+const relativeToComponents = path.relative(componentsDir, basePath);
+
+if (
+  relativeToComponents.startsWith('..') ||
+  path.isAbsolute(relativeToComponents) ||
+  relativeToComponents === ''
+) {
+  console.error('❌ Invalid component name.');
+  process.exit(1);
+}
 
 if (fs.existsSync(basePath)) {
   console.error('❌ Component already exists.');
