@@ -1,0 +1,6 @@
+.errorBoundary {
+  composes: container from '../container/container.module.css';
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

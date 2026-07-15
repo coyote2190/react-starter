@@ -6,6 +6,9 @@ const Unfonts = UnfontsRaw as unknown as (o?: unknown) => unknown;
 
 // https://vite.dev/config/
 export default defineConfig({
+  css: {
+    transformer: 'lightningcss'
+  },
   plugins: [
     react(),
     Unfonts({
@@ -34,14 +37,12 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
       '@/components': path.resolve(__dirname, './src/components'),
       '@/context': path.resolve(__dirname, './src/context'),
-      '@/hooks': path.resolve(__dirname, './src/hooks'),
       '@/layouts': path.resolve(__dirname, './src/layouts'),
       '@/pages': path.resolve(__dirname, './src/pages'),
       '@/routes': path.resolve(__dirname, './src/routes'),
       '@/store': path.resolve(__dirname, './src/store'),
       '@/testing': path.resolve(__dirname, './src/testing'),
-      '@/theme': path.resolve(__dirname, './src/theme'),
-      '@/utils': path.resolve(__dirname, './src/utils')
+      '@/theme': path.resolve(__dirname, './src/theme')
     },
     dedupe: ['react', 'react-dom'],
     tsconfigPaths: true

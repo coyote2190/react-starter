@@ -20,4 +20,8 @@ i18n
     lng: savedLang
   });
 
+i18n.on('languageChanged', (lng) => {
+  localStorage.setItem('lang', lng);
+});
+
 export default i18n;

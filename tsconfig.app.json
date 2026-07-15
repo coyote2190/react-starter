@@ -29,14 +29,12 @@
       "@/*": ["./src/*"],
       "@/components/*": ["./src/components/*"],
       "@/context/*": ["./src/context/*"],
-      "@/hooks/*": ["./src/hooks/*"],
       "@/layouts/*": ["./src/layouts/*"],
       "@/pages/*": ["./src/pages/*"],
       "@/routes/*": ["./src/routes/*"],
       "@/store/*": ["./src/store/*"],
       "@/testing/*": ["./src/testing/*"],
-      "@/theme/*": ["./src/theme/*"],
-      "@/utils/*": ["./src/utils/*"]
+      "@/theme/*": ["./src/theme/*"]
     },
     "types": ["vite/client", "vitest/globals"]
   },

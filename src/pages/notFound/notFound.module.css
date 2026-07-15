@@ -1,0 +1,6 @@
+.notFoundPage {
+  composes: container from '../../components/container/container.module.css';
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

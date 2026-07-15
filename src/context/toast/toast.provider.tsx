@@ -6,6 +6,9 @@ import styles from './toast.module.css';
 
 let toastId = 0;
 
+const toastTypeClass = (type: Required<BaseToast>['type']) =>
+  `toast${type.charAt(0).toUpperCase()}${type.slice(1)}` as const;
+
 export const ToastProvider = ({ children }: { children: ReactNode }) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
   const TOAST_DURATION = 3000;
@@ -23,7 +26,14 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
       {children}
       <div className={styles.toastContainer}>
         {toasts.map((toast) => (
-          <div key={toast.id}>alert</div>
+          <div
+            className={`${styles.toast} ${styles[toastTypeClass(toast.type ?? 'info')]}`}
+            key={toast.id}
+            role="alert"
+          >
+            {toast.title && <strong>{toast.title}</strong>}
+            {toast.message && <p>{toast.message}</p>}
+          </div>
         ))}
       </div>
     </ToastContext.Provider>

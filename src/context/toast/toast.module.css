@@ -7,3 +7,32 @@
   flex-direction: column;
   gap: 10px;
 }
+
+.toast {
+  min-width: 240px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+}
+
+.toast p {
+  margin: 4px 0 0;
+}
+
+.toastInfo {
+  background-color: #2563eb;
+}
+
+.toastSuccess {
+  background-color: #16a34a;
+}
+
+.toastWarning {
+  background-color: #d97706;
+}
+
+.toastError {
+  background-color: #dc2626;
+}

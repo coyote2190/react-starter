@@ -93,17 +93,8 @@ export default tseslint.config(
           newlinesBetween: 'ignore'
         }
       ],
-      'perfectionist/sort-exports': ['error', { type: 'alphabetical', order: 'asc', ignoreCase: false }],
-      'perfectionist/sort-objects': ['warn', { type: 'alphabetical', order: 'asc', ignoreCase: false }],
       'perfectionist/sort-exports': ['error', { type: 'natural', order: 'asc' }],
-      'perfectionist/sort-objects': [
-        'warn',
-        {
-          type: 'alphabetical',
-          order: 'asc',
-          ignoreCase: false
-        }
-      ],
+      'perfectionist/sort-objects': ['warn', { type: 'alphabetical', order: 'asc', ignoreCase: false }],
       // Promises
       'promise/always-return': 'warn',
       'promise/no-return-wrap': 'error',
