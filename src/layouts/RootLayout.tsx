@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router';
-import { LanguageToggle } from '@/components/LanguageToggle';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import { LanguageToggle } from '@/components/LanguageToggle/LanguageToggle';
+import { ThemeToggle } from '@/components/ThemeToggle/ThemeToggle';
 import { useTheme } from '@/hooks/useTheme';
 
 export function RootLayout() {
