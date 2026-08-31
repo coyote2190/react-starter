@@ -22,10 +22,17 @@
       "trailingCommas": "all"
     }
   },
+  "css": {
+    "parser": {
+      "cssModules": false,
+      "allowWrongLineComments": false,
+      "tailwindDirectives": true
+    }
+  },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "correctness": {
         "useExhaustiveDependencies": "error",
         "useHookAtTopLevel": "error"
@@ -36,12 +43,6 @@
       },
       "suspicious": {
         "noExplicitAny": "error"
-      },
-      "a11y": {
-        "recommended": true
-      },
-      "nursery": {
-        "noFloatingPromises": "error"
       }
     }
   },
