@@ -1,0 +1,21 @@
+{
+  "app": {
+    "name": "react-starter"
+  },
+  "home": {
+    "title": "react-starter",
+    "cta": "Ça fonctionne"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "description": "Cette page n'existe pas.",
+    "backHome": "Retour à l'accueil"
+  },
+  "theme": {
+    "toLight": "Passer en thème clair",
+    "toDark": "Passer en thème sombre"
+  },
+  "language": {
+    "switchTo": "Passer en {{lang}}"
+  }
+}

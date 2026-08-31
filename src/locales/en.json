@@ -1,0 +1,21 @@
+{
+  "app": {
+    "name": "react-starter"
+  },
+  "home": {
+    "title": "react-starter",
+    "cta": "It works"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "This page does not exist.",
+    "backHome": "Back to home"
+  },
+  "theme": {
+    "toLight": "Switch to light theme",
+    "toDark": "Switch to dark theme"
+  },
+  "language": {
+    "switchTo": "Switch to {{lang}}"
+  }
+}

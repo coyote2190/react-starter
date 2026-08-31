@@ -1,0 +1,11 @@
+import type { defaultNS } from "@/lib/i18n";
+import type en from "@/locales/en.json";
+
+declare module "i18next" {
+  interface CustomTypeOptions {
+    defaultNS: typeof defaultNS;
+    resources: {
+      translation: typeof en;
+    };
+  }
+}
