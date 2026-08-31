@@ -6,7 +6,6 @@ export function useTheme() {
   const toggleTheme = useThemeStore((state) => state.toggleTheme);
 
   useEffect(() => {
-    console.log("[useTheme] theme actif:", theme);
     document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
 
