@@ -1,6 +1,6 @@
-import "@testing-library/jest-dom/vitest";
-import { cleanup } from "@testing-library/react";
-import { afterEach, beforeEach } from "vitest";
+import '@testing-library/jest-dom/vitest';
+import { cleanup } from '@testing-library/react';
+import { afterEach, beforeEach } from 'vitest';
 
 // Node >= 22 ships an experimental global `localStorage` that resolves to
 // `undefined` unless `--localstorage-file` is passed, and it shadows the
@@ -8,7 +8,7 @@ import { afterEach, beforeEach } from "vitest";
 // Storage polyfill when a working `localStorage` isn't available.
 function hasWorkingLocalStorage(): boolean {
   try {
-    return typeof globalThis.localStorage?.clear === "function";
+    return typeof globalThis.localStorage?.clear === 'function';
   } catch {
     return false;
   }
@@ -43,7 +43,7 @@ if (!hasWorkingLocalStorage()) {
     }
   }
 
-  Object.defineProperty(globalThis, "localStorage", {
+  Object.defineProperty(globalThis, 'localStorage', {
     configurable: true,
     value: new MemoryStorage(),
   });
@@ -51,7 +51,7 @@ if (!hasWorkingLocalStorage()) {
 
 beforeEach(() => {
   localStorage.clear();
-  document.documentElement.classList.remove("dark");
+  document.documentElement.classList.remove('dark');
 });
 
 afterEach(() => {

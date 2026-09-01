@@ -4,7 +4,8 @@
   },
   "home": {
     "title": "react-starter",
-    "cta": "It works"
+    "description": "Production-ready React base: Vite, strict TypeScript, Tailwind, Biome, and Vitest.",
+    "cta": "View example"
   },
   "notFound": {
     "title": "Page not found",
@@ -17,5 +18,15 @@
   },
   "language": {
     "switchTo": "Switch to {{lang}}"
+  },
+  "nav": {
+    "home": "Home",
+    "users": "Users"
+  },
+  "users": {
+    "title": "Users",
+    "description": "Example of data fetching with TanStack Query.",
+    "error": "Failed to load users.",
+    "retry": "Retry"
   }
 }

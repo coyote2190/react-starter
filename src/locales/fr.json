@@ -4,7 +4,8 @@
   },
   "home": {
     "title": "react-starter",
-    "cta": "Ça fonctionne"
+    "description": "Base React prête pour la production : Vite, TypeScript strict, Tailwind, Biome et Vitest.",
+    "cta": "Voir l'exemple"
   },
   "notFound": {
     "title": "Page introuvable",
@@ -17,5 +18,15 @@
   },
   "language": {
     "switchTo": "Passer en {{lang}}"
+  },
+  "nav": {
+    "home": "Accueil",
+    "users": "Utilisateurs"
+  },
+  "users": {
+    "title": "Utilisateurs",
+    "description": "Exemple de récupération de données avec TanStack Query.",
+    "error": "Impossible de charger les utilisateurs.",
+    "retry": "Réessayer"
   }
 }

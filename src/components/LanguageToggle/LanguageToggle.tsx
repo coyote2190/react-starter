@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 
-export function LanguageToggle() {
+export const LanguageToggle = () => {
   const { i18n, t } = useTranslation();
   const next = i18n.language === 'fr' ? 'en' : 'fr';
 
@@ -15,4 +15,4 @@ export function LanguageToggle() {
       {next.toUpperCase()}
     </Button>
   );
-}
+};
