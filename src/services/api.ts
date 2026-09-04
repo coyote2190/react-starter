@@ -1,5 +1,11 @@
 import { env } from '@/lib/env';
 
+export type MetaParameterResponse = {
+  cfu: string;
+  sorption: string;
+  traversal: string;
+};
+
 export class ApiError extends Error {
   constructor(
     message: string,

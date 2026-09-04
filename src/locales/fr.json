@@ -28,5 +28,20 @@
     "description": "Exemple de récupération de données avec TanStack Query.",
     "error": "Impossible de charger les utilisateurs.",
     "retry": "Réessayer"
+  },
+  "notes": {
+    "title": "Notes",
+    "description": "Exemple de CRUD local avec Zustand et React Hook Form.",
+    "empty": "Aucune note pour le moment.",
+    "edit": "Modifier la note",
+    "delete": "Supprimer la note",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "form": {
+      "title": "Titre",
+      "titlePlaceholder": "Ma note",
+      "content": "Contenu",
+      "submit": "Ajouter"
+    }
   }
 }

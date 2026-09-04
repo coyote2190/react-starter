@@ -9,7 +9,7 @@ export function HomePage() {
     <section className="mx-auto max-w-2xl space-y-6 py-12 text-center">
       <h1 className="font-bold text-4xl tracking-tight">{t('home.title')}</h1>
       <p className="text-lg text-muted-foreground">{t('home.description')}</p>
-      <Button size="lg">
+      <Button asChild size="lg">
         <Link to="/users">{t('home.cta')}</Link>
       </Button>
     </section>

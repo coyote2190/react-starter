@@ -28,5 +28,20 @@
     "description": "Example of data fetching with TanStack Query.",
     "error": "Failed to load users.",
     "retry": "Retry"
+  },
+  "notes": {
+    "title": "Notes",
+    "description": "Example of local CRUD with Zustand and React Hook Form.",
+    "empty": "No notes yet.",
+    "edit": "Edit note",
+    "delete": "Delete note",
+    "save": "Save",
+    "cancel": "Cancel",
+    "form": {
+      "title": "Title",
+      "titlePlaceholder": "My note",
+      "content": "Content",
+      "submit": "Add"
+    }
   }
 }

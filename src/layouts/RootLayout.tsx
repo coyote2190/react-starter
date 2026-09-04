@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 const navItems = [
   { to: '/', labelKey: 'nav.home' },
   { to: '/users', labelKey: 'nav.users' },
+  { to: '/notes', labelKey: 'nav.notes' },
 ] as const;
 
 export function RootLayout() {
